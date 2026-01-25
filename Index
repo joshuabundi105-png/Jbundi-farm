@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jbundis Farm Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>🐖 Jbundis Farm Manager</h1>
+    <p class="tag">Batch • Health • Finance</p>
+  </header>  <main class="container">
+    <section class="card">
+      <h2>Create Batch</h2>
+      <label>Batch Name
+        <input id="batchName" placeholder="e.g. Batch A" />
+      </label>
+      <label>Start Date
+        <input id="startDate" type="date" />
+      </label>
+      <label>Number of Pigs
+        <input id="count" type="number" />
+      </label>
+      <button onclick="addBatch()">Save Batch</button>
+    </section><section class="card">
+  <h2>Active Batches</h2>
+  <ul id="batchList"></ul>
+</section>
+
+  </main>  <script src="app.js"></script></body>
+</html>
