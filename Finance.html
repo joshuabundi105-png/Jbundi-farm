@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expenses & Charts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Expenses & Charts</h1>
+    <p class="tag">Spend • Income • Profit</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Select Batch</h2>
+      <select id="batchSelect"></select>
+    </section>
+
+    <section class="card">
+      <h2>Add Expense</h2>
+      <label>Description
+        <input id="expenseDesc" placeholder="Feed, Medicine, Labor..." />
+      </label>
+      <label>Amount (KES)
+        <input id="expenseAmount" type="number" />
+      </label>
+      <button onclick="saveExpense()">Save Expense</button>
+    </section>
+
+    <section class="card">
+      <h2>Expenses List</h2>
+      <ul id="expenseList"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Charts</h2>
+      <canvas id="pieChart"></canvas>
+      <canvas id="barChart"></canvas>
+    </section>
+
+    <button onclick="location.href='index.html'" class="backBtn">Back</button>
+  </main>
+
+  <script src="finance.js"></script>
+</body>
+</html>
