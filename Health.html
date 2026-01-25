@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health & Vaccination</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Health & Vaccination</h1>
+    <p class="tag">Vaccines • Deworming • Records</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Select Batch</h2>
+      <select id="batchSelect"></select>
+    </section>
+
+    <section class="card">
+      <h2>Vaccination & Deworming</h2>
+      <label>Type
+        <select id="healthType">
+          <option value="vaccine">Vaccination</option>
+          <option value="deworm">Deworming</option>
+        </select>
+      </label>
+
+      <label>Date
+        <input id="healthDate" type="date" />
+      </label>
+
+      <label>Notes
+        <input id="healthNotes" placeholder="e.g. Tetanus, Vitamin A" />
+      </label>
+
+      <button onclick="saveHealth()">Save Record</button>
+    </section>
+
+    <section class="card">
+      <h2>Records</h2>
+      <ul id="healthList"></ul>
+    </section>
+
+    <button onclick="location.href='index.html'" class="backBtn">Back</button>
+  </main>
+
+  <script src="health.js"></script>
+</body>
+</html>
