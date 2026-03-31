@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expenses & Charts</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <!-- Updated styles and scripts references -->
+    <link rel="stylesheet" href="Style.css">
+    <script src="Finance.js"></script>
+    <!-- Added Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header class="header">
-    <h1>Expenses & Charts</h1>
-    <p class="tag">Spend • Income • Profit</p>
-  </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Select Batch</h2>
-      <select id="batchSelect"></select>
-    </section>
+    <h1>Finance Page</h1>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
 
-    <section class="card">
-      <h2>Add Expense</h2>
-      <label>Description
-        <input id="expenseDesc" placeholder="Feed, Medicine, Labor..." />
-      </label>
-      <label>Amount (KES)
-        <input id="expenseAmount" type="number" />
-      </label>
-      <button onclick="saveExpense()">Save Expense</button>
-    </section>
-
-    <section class="card">
-      <h2>Expenses List</h2>
-      <ul id="expenseList"></ul>
-    </section>
-
-    <section class="card">
-      <h2>Charts</h2>
-      <canvas id="pieChart"></canvas>
-      <canvas id="barChart"></canvas>
-    </section>
-
-    <button onclick="location.href='index.html'" class="backBtn">Back</button>
-  </main>
-
-  <script src="finance.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Finance Data',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
