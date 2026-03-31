@@ -3,41 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance</title>
-    <!-- Updated styles and scripts references -->
-    <link rel="stylesheet" href="Style.css">
-    <!-- Added Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Finance Tracker</title>
+    <script src="Finance.js"></script>
 </head>
 <body>
-
-    <h1>Finance Page</h1>
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: 'Finance Data',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+    <h1>Expense Tracking Form</h1>
+    <form id="expenseForm">
+        <label for="batchSelect">Batch:</label>
+        <select id="batchSelect">
+            <option value="batch1">Batch 1</option>
+            <option value="batch2">Batch 2</option>
+            <option value="batch3">Batch 3</option>
+            <!-- Add more options as needed -->
+        </select>
+        <br />
+        <label for="expenseDesc">Expense Description:</label>
+        <input type="text" id="expenseDesc" required />
+        <br />
+        <label for="expenseAmount">Expense Amount:</label>
+        <input type="number" id="expenseAmount" required />
+        <br />
+        <input type="submit" value="Add Expense" />
+    </form>
+    <h2>Expense List</h2>
+    <ul id="expenseList"></ul>
+    <canvas id="pieChart" width="400" height="400"></canvas>
+    <canvas id="barChart" width="400" height="400"></canvas>
     <script src="Finance.js"></script>
 </body>
 </html>
