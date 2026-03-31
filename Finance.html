@@ -3,32 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Tracker</title>
-    <script src="Finance.js"></script>
+    <title>Finance Tracker - Jbundi Farm</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        #expenseForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: 600;
+            color: #555;
+        }
+        input, select {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        input[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        #expenseList {
+            list-style: none;
+            padding: 0;
+        }
+        #expenseList li {
+            background: #f0f0f0;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .charts-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .chart-wrapper {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Expense Tracking Form</h1>
-    <form id="expenseForm">
-        <label for="batchSelect">Batch:</label>
-        <select id="batchSelect">
-            <option value="batch1">Batch 1</option>
-            <option value="batch2">Batch 2</option>
-            <option value="batch3">Batch 3</option>
-            <!-- Add more options as needed -->
-        </select>
-        <br />
-        <label for="expenseDesc">Expense Description:</label>
-        <input type="text" id="expenseDesc" required />
-        <br />
-        <label for="expenseAmount">Expense Amount:</label>
-        <input type="number" id="expenseAmount" required />
-        <br />
-        <input type="submit" value="Add Expense" />
-    </form>
-    <h2>Expense List</h2>
-    <ul id="expenseList"></ul>
-    <canvas id="pieChart" width="400" height="400"></canvas>
-    <canvas id="barChart" width="400" height="400"></canvas>
+    <div class="container">
+        <h1>💰 Expense Tracking Dashboard</h1>
+        
+        <div class="form-section">
+            <form id="expenseForm">
+                <div>
+                    <label for="batchSelect">Select Batch:</label>
+                    <select id="batchSelect" required>
+                        <option value="">Choose a batch...</option>
+                        <option value="batch1">Batch 1</option>
+                        <option value="batch2">Batch 2</option>
+                        <option value="batch3">Batch 3</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="expenseDesc">Expense Description:</label>
+                    <input type="text" id="expenseDesc" placeholder="e.g., Feed, Medication, Equipment" required />
+                </div>
+                <div>
+                    <label for="expenseAmount">Amount (KES):</label>
+                    <input type="number" id="expenseAmount" placeholder="0.00" step="0.01" required />
+                </div>
+                <input type="submit" value="Add Expense" />
+            </form>
+        </div>
+
+        <h2>📋 Expense History</h2>
+        <ul id="expenseList"></ul>
+
+        <h2>📊 Analytics</h2>
+        <div class="charts-container">
+            <div class="chart-wrapper">
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+
     <script src="Finance.js"></script>
 </body>
 </html>
